@@ -1,7 +1,11 @@
 # Sequência de Integração da API
 
 ## Configuração Inicial
-1. Carregar Configurações
+1. Enviar UTMS sobre marketing e campanhas
+   - Endpoint: `POST /utms`
+   - Objetivo: Salvar campanhas de marketing que estão dando certo
+   - Quando: Na montagem do componente
+2. Carregar Configurações
    - Endpoint: `GET /payments/configs`
    - Objetivo: Obtém configurações iniciais incluindo preços e taxas de cartão de crédito
    - Quando: Na montagem do componente
