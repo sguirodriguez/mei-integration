@@ -57,27 +57,24 @@ const starting = async () => {
 
     //## Fluxo de Pagamento
     //1. Gerar pagamento (credit_card)
-    const payment = await createPayment(customer.result.uuid, {
-        type: 'credit_card',
-        paymentData: {
-            holderName: "João da Silva",
-            cardNumber: "1234567890123456",
-            expirationDate: "12/2024",
-            securityCode: "123",
-            installmentQuantity: 1
-        }
-    });
+    // const payment = await createPayment(customer.result.uuid, {
+    //     type: 'credit_card',
+    //     paymentData: {
+    //         holderName: "João da Silva",
+    //         cardNumber: "1234567890123456",
+    //         expirationDate: "12/2024",
+    //         securityCode: "123",
+    //         installmentQuantity: 1
+    //     }
+    // });
     //1. Gerar pagamento (pix)
     const paymentPix = await createPayment(customer.result.uuid, {
-        type: 'pix',
-        paymentData: {
-            pixKey: "15988000574"
-        }
+        type: 'pix'
     });
     //2. Verificar Status do Pagamento (apenas PIX)
     const paymentStatus = await getPaymentStatus(paymentPix.result.txid);
 
-    console.log('Payment Status:', paymentStatus);
+    console.log('Customer and payment:', customer, paymentPix);
 }
 
 starting();
